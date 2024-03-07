@@ -41,3 +41,10 @@ function deleteTask(taskElement) {
     taskElement.parentNode.removeChild(taskElement);
   }
 }
+
+function editTask(taskElement) {
+  const newTaskDescription = prompt('Edit your task', taskElement.textContent);
+  if ((newTaskDescription !== null) & (newTaskDescription.trim() !== '')) {
+    taskElement.textContent = newTaskDescription;
+  }
+}
