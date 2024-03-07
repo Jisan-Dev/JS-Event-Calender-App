@@ -27,3 +27,10 @@ const generateCalender = () => {
     calender.appendChild(daySquare);
   }
 };
+
+function showAddTaskModal() {
+  document.getElementById('addTaskModal').style.display = 'block';
+}
+function closeAddTaskModal() {
+  document.getElementById('addTaskModal').style.display = 'none';
+}
