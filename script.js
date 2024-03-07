@@ -48,3 +48,35 @@ function editTask(taskElement) {
     taskElement.textContent = newTaskDescription;
   }
 }
+
+function addTask() {
+  const taskDate = new Date(document.getElementById('task-date').value);
+  const taskDesc = document.getElementById('task-desc').value;
+
+  if (taskDesc && !isNaN(taskDate.getDate())) {
+    const calenderDays = document.getElementById('calender').children;
+    for (let i = 0; i < calenderDays; i++) {
+      const day = calenderDays[i];
+      if (parseInt(day.textContent) === taskDate.getDay()) {
+        const taskElement = document.createElement('div');
+        taskElement.className = 'task';
+        taskElement.textContent = taskDesc;
+
+        taskElement.addEventListener('contextmenu', function (event) {
+          event.preventDefault();
+          deleteTask(taskElement);
+        });
+
+        taskElement.addEventListener('click', function () {
+          editTask(taskElement);
+        });
+
+        day.appendChild(taskElement);
+        break;
+      }
+    }
+    closeAddTaskModal();
+  } else {
+    alert('Please enter a valid date & task description');
+  }
+}
