@@ -31,6 +31,13 @@ const generateCalender = () => {
 function showAddTaskModal() {
   document.getElementById('addTaskModal').style.display = 'block';
 }
+
 function closeAddTaskModal() {
   document.getElementById('addTaskModal').style.display = 'none';
+}
+
+function deleteTask(taskElement) {
+  if (confirm('Are you sure you want to delete this task?')) {
+    taskElement.parentNode.removeChild(taskElement);
+  }
 }
