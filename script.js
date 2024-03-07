@@ -61,7 +61,19 @@ function addTask() {
       if (parseInt(day.textContent) === taskDate.getDate()) {
         const taskElement = document.createElement('div');
         taskElement.className = 'task';
-        taskElement.classList.add('bg-black');
+        taskElement.classList.add(
+          'bg-[#212121]',
+          'mt-2',
+          'p-3',
+          'rounded',
+          'text-center',
+          'break-normal',
+          'text-[0.9em]',
+          'w-[88%]',
+          'cursor-pointer',
+          'transition-all',
+          'hover:bg-black'
+        );
         taskElement.textContent = taskDesc;
 
         taskElement.addEventListener('contextmenu', function (event) {
